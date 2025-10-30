@@ -1,5 +1,5 @@
 from flask import Flask, request
-import requests, os, firebase_admin
+import requests, os, firebase_admin,json
 from firebase_admin import credentials, firestore
 from dotenv import load_dotenv
 
