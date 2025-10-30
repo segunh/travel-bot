@@ -14,7 +14,8 @@ ACCESS_TOKEN = os.getenv("WHATSAPP_TOKEN")
 PHONE_NUMBER_ID = os.getenv("PHONE_NUMBER_ID")
 
 # Initialize Firebase
-cred = credentials.Certificate("firebase_config.json")
+firebase_config = json.loads(os.getenv("FIREBASE_CONFIG"))
+cred = credentials.Certificate(firebase_config)
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 
