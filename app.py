@@ -15,7 +15,7 @@ PHONE_NUMBER_ID = os.getenv("PHONE_NUMBER_ID")
 
 # Initialize Firebase
 firebase_config = json.loads(os.getenv("FIREBASE_CONFIG"))
-cred = credentials.Certificate(firebase_config)
+cred = credentials.Certificate(firebase_config.json)
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 
