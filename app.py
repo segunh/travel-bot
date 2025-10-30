@@ -21,6 +21,16 @@ db = firestore.client()
 # Store user states in memory
 user_states = {}
 
+@app.route("/test_firebase")
+def test_firebase():
+    try:
+        test_ref = db.collection("travel_users").document("test_doc")
+        test_ref.set({"status": "connected"})
+        return "✅ Firestore write success!"
+    except Exception as e:
+        return f"❌ Firestore error: {e}"
+
+
 @app.route("/webhook", methods=["GET"])
 def verify_webhook():
     mode = request.args.get("hub.mode")
